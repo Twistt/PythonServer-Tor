@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Paranoia Store</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="/css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">PARANOIA</span> Registration
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll active" href="#registration">Registration</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- About Section -->
+    <section id="registration" class="container content-section text-center">
+        <div class="row">
+            <div>
+                {% if status and statusbit==0 %}
+                    <div style="color:red;">
+                        <h3>{{status}}</h3>
+                    </div>
+                {% endif %}
+                {% if status and statusbit==1 %}
+                    <div style="color:green;">
+                        <h4>{{status}} Enter the following <i>SERVER key</i> into your PARANOIA Chat client</h4>
+                        <h3>{{responsekey}}</h3>
+
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-10 col-lg-offset-2" style="text-align:left;">
+
+                <h2>What is PARANOIA Chat and How does it work?</h2>
+                <div>
+                    <p>PARANOIA Chat is an encrypted chat service that does NOT know how to decrypt your chat.
+                    The server uses a separate encryption algorithm to encrypt your login independent of your saved messages which are encrypted in your side.</p>
+                    <p>The server never sees your encryption key and does not know how to decrypt your messages.
+                    <p>Your chat partner must know the encryption key and put it into his paranoia client to read your messages.</p>
+                </div>
+
+                <div class="clear spacer" style="width:100%; height:20px;"></div>
+                <form class="col-md-12" style="text-align:left;" method="post" action="/completeregistration">
+                    <a href="" class="btn btn-default btn-lg" style="float:right;"><i class="fa fa-github fa-fw"></i> <span class="network-name">Donate</span></a>
+                    <h3>PARANOIA Chat Registration</h3>
+                    <div class="clear spacer" style="width:100%; height:10px;"></div>
+                    <div class="control-group col-md-6" >
+                        <label class="control-label">Screen Name</label>
+                        <input type="text" placeholder="screen name" name="screenname" id="screenname" style="z-index: 1; color:black;"/>
+                    </div>
+                    <div class="col-md-6">
+                        This will store the encrypted version of this name to retrieve messages - it will never store the original.
+                    </div>
+                    <div class="control-group col-md-6">
+                        <label class="control-label">Password</label>
+                        <input type="password" placeholder="password" name="password" id="password" type="password" style="z-index: 1; color:black;"/>
+                    </div>
+                    <div class="clear spacer" style="width:100%; height:20px; clear:both;"></div>
+                    <div class="center col-xs-12" style="text-align:center;">
+                        <input type="submit" class="btn btn-default" value="Create PARANOIA Chat Account">
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Contact</h2>
+                    <p>You can email questions or other inquiries at the following email address.</p>
+                    <a href="mailto:tetser@tetser.com" class="btn btn-default btn-lg">Email US</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; K1tsun3</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+</body>
+
+</html>
